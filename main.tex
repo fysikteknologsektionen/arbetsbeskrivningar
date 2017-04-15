@@ -1,0 +1,158 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+\pagenumbering{arabic}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{array}
+\usepackage{ifpdf}
+\usepackage{longtable}
+\usepackage[left=20mm,right=20mm,top=10mm,bottom=20mm]{geometry}
+\usepackage[yyyymmdd]{datetime} %Ger mer valfrihet kring datumformat
+\usepackage{url}
+\usepackage{soul}
+\usepackage{ulem}
+\usepackage[disable]{todonotes}
+%\usepackage[normaalem]{ulem}
+
+%Veckodagar på svenska
+\providecommand*{\dayofweeknameidswedish}[1]{%
+\ifcase#1\relax
+\or söndagen%
+\or måndagen%
+\or tisdagen%
+\or onsdagen%
+\or torsdagen%
+\or fredagen%
+\or lördagen%
+\fi}
+
+%%%% Fina headers är bra skit. %%%%
+\pagestyle{fancy}
+\headheight 35pt
+\headwidth \textwidth
+\addtolength{\textwidth}{-65pt}
+\headsep 40pt
+\addtolength{\textheight}{-65pt}
+\renewcommand{\footrulewidth}{0.4pt}
+%%%% Välj logga (styretlogo, sektionslogo eller din funktionärslogo) och ändra
+\fancyhead[L]{\includegraphics[height=5\baselineskip]{sektionslogo.png}}
+\fancyhead[R]{Arbetsordning \forening \\
+\today \\
+}
+%\fancyfoot[L]{Revisor \\ Anna Rosenberg \\ annros@student.chalmers.se}
+%\fancyfoot[C]{\url{http://www.ftek.chalmers.se/revisor} \\ revisor@ftek.chalmers.se}
+%\fancyfoot[R]{Revisorssuppleant \\ Marcus Birgersson \\ marbirg@student.chalmers.se}
+
+
+%%%%%%%EGNA KOMMANDON %%%%%%%%%%%%%%
+\newcommand{\signbox}[3]{
+
+\vspace{2cm}
+#1  \\
+\vspace{5mm}\\
+\line(1,0){150}\\
+ #2 \\ #3\newpage}
+
+\newdateformat{mydate}{\dayofweekname{\THEDAY}{\THEMONTH}{\THEYEAR} den \THEDAY :a \monthname[\THEMONTH] \THEYEAR}%END
+
+
+
+
+%%%% Här börjar det riktiga dokumentet %%%%
+
+\begin{document}
+
+\renewcommand{\dateseparator}{-} %Omdefinierar hur datum visas
+%\input{motesordningSM.tex}
+\listoftodos
+
+\todo{Use todo  to make comments}
+\newpage
+
+\input{Balngt.tex}
+\setcounter{section}{0}
+
+\input{Bilnisse.tex}
+\setcounter{section}{0}
+
+\input{Blodgruppen.tex}
+\setcounter{section}{0}
+
+\input{Djungelpatrullen.tex}
+\setcounter{section}{0}
+
+\input{Dragos.tex}
+\setcounter{section}{0}
+
+\input{Dumvast.tex}
+\setcounter{section}{0}
+ 
+\input{Dumvastinnehavare.tex}
+\setcounter{section}{0}
+
+\input{F6.tex}
+\setcounter{section}{0}
+
+\input{Fanfareriet.tex}
+\setcounter{section}{0}
+
+\input{FARM.tex}
+\setcounter{section}{0}
+
+\input{FIF.tex}
+\setcounter{section}{0}
+
+\input{Finform.tex}
+\setcounter{section}{0}
+
+\input{FnollK.tex}
+\setcounter{section}{0}
+
+\input{Focumateriet.tex}
+\setcounter{section}{0}
+
+\input{Gameboy.tex}
+\setcounter{section}{0}
+
+\input{Kraldjursvardare.tex}
+\setcounter{section}{0}
+
+\input{Karnstyret.tex}
+\setcounter{section}{0}
+ 
+\input{Lekmannarevisor.tex}
+\setcounter{section}{0}
+
+\input{SAMO.tex}
+\setcounter{section}{0}
+
+\input{Sektionsnord.tex}
+\setcounter{section}{0}
+
+\input{SNF.tex}
+\setcounter{section}{0}
+
+\input{Spidera.tex}
+\setcounter{section}{0}
+
+\input{Sangforman.tex}
+\setcounter{section}{0}
+
+\input{Tomteochlucia.tex}
+\setcounter{section}{0}
+
+\input{Valberedningen.tex}
+\setcounter{section}{0}
+
+\input{Vaxteriet.tex}
+\setcounter{section}{0}
+
+%\signbox{d}{Marcus Birgersson}{Revisorssuppleant}
+
+% \end{description}
+
+\end{document}
+
