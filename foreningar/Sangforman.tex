@@ -1,0 +1,26 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\begin{document}
+
+\renewcommand{\forening}{Sångförmän} % Används för headern bl.a.
+
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item Sångförmännen har funktionärsstatus på sektionen.
+        \item Sångförmännens syfte är att förvalta och bevara sektionens sångtraditioner.
+    \end{itemize}
+    Sångförmännen är till antalet 0--6.
+    
+    \section{Åligganden}
+    \aliggsektfunkt{}
+    
+    \subsection{Det åligger sångförmännen:}
+    \begin{description}
+        \item[att] vid sektionens sammankomster leda och fördela de tonala utsvävningarna.
+        \item[att] förvalta och utveckla Fysikteknologsektionens visskatt, sjungboken.
+        \item[att] tillse att \textit{Ode till valen Åke} framförs vid varje F-gasque.
+    \end{description}
+\end{foreningenv}
+
+\end{document}

@@ -1,0 +1,106 @@
+\ProvidesPackage{preamble}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{fancyhdr} % För headers och footers
+\usepackage{array} % För dumvästlistan
+\usepackage{longtable} % För dumvästlistan
+\usepackage[top=20mm, left=20mm, right=20mm, bottom=35mm]{geometry}
+\usepackage[yyyymmdd]{datetime} %Ger mer valfrihet kring datumformat
+\usepackage{soul}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{silence} % För \WarningsOff
+\WarningsOff[tocstyle] % tocstyle ger alltid ett felmeddelande, även utan fel. \WarningsOff stänger av det
+\usepackage{tocstyle} % För att kunna ställa in utseendet på innehållsförteckningen
+\usepackage{makecell} % För dumvästlistan
+\usepackage{color, colortbl} % För dumvästlistan
+\usepackage{standalone} % För att kunna välja att kompilera hela dokumentet eller en förening i taget
+\usepackage{titlesec} % För att kunna ändra utseendet på \part
+\usepackage{fp}
+
+% Registerstil:
+\settocfeature{entryhook}{\hspace*{-1.4em}\Large\bfseries} % Tar bort mellanrummet mellan (de i detta fall ickeexisterande) partnumrena och namnen samt ändrar storlek och tjocklek
+\settocfeature{entryvskip}{.75em} % Skapar lite luft mellan raderna
+\settocfeature{dothook}{\large\normalfont} % Ändrar storlek och tjocklek för punkterna innan sidnumrena
+\setlength\columnsep{40pt} % Anpassar avståndet mellan registerkolumnerna
+\setcounter{tocdepth}{0} % Ser till att bara \parts dyker upp i innehållsförteckningen
+\renewcommand\tableofcontents{\@starttoc{toc}} % Tar bort "Innehåll"-rubriken från registret
+
+% Ändrar hur \part ser ut i själva dokumentet:
+\titleclass{\part}{straight}
+\titleformat{\part}[hang]{\centering\bfseries\LARGE}{Arbetsordning }{0pt}{} % Ändrar utseende och prefixerar föreningsnamnet med "Arbetsordning "
+\renewcommand{\thepart}{} % Slopar \part-numreringen
+
+% Skippar header för förstasidan
+\fancypagestyle{first}{
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}}
+
+% Header för alla sidor utom första
+\pagestyle{fancy}
+\headheight 64pt
+\headsep 15pt
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[L]{\includegraphics[height=5\baselineskip]{sektionslogo.png}}
+\fancyhead[R]{Arbetsordning \forening{} \\ \today \\}
+
+% Övrigt
+\renewcommand{\dateseparator}{-} % Omdefinierar hur datum visas
+\providecommand{\forening}{} % Ser till att \forening är definierat så att \renewcommand funkar
+\standalonetrue % Sätts till \iffalse om main.tex kompileras. Avgör om Tolkning och ändring ska infogas i varje avsnitt eller inte. (Egentligen används \ifstandalone för att se om en fil är av dokumenttyp standalone, men jag valde att hijacka den här)
+
+% Litet environment som används för varje förening
+\newenvironment{foreningenv}[1]
+    {
+    \label{start:\forening}
+    \setcounter{section}{0} % Startar om sectionräknaren så att filens sections börjar på 1
+    \part{#1} % \part används här som rubriker för varje förening
+    \FPeval{\partend}{clip(\getpagerefnumber{end:\forening} - \getpagerefnumber{start:\forening} + 1)}
+    }{
+    \label{end:\forening}
+    \ifstandalone
+        \section{Tolkning och ändring}
+        \tolkning{}
+    \else
+        \newpage     
+    \fi
+    }
+
+\newcommand{\tolkning}{ % Tolkningstext. Hamnar på förstasidan om main.tex kompileras eller sist i dokumentet om en föreningsfil kompileras. Fult sätt att lösa det på med \newcommand, men så fick det bli för tillfället
+    Tolkning av denna arbetsordning görs av sektionsstyrelsen.
+
+    Då Fysikteknologsektionens stadga, reglemente eller policyer motsäger denna arbetsordning har stadga och reglemente företräde.
+
+    Då kårens stadga, reglemente eller policyer motsäger denna arbetsordning har kårens stadga, reglemente och policyer företräde.
+
+    Ändring och tillägg av denna arbetsordning görs av sektionsstyrelsen. Ändring skall redovisas vid nästkommande sektionsmöte. 
+}
+
+\newcommand{\aliggkom}{ % Åligganden för kommittéer
+    Det åligger varje sektionskommitté:
+    \begin{description}
+        \item[att] på det ordinarie sektionsmöte som följer på det, då kommittén blivit invald, presentera en verksamhetsplan för det kommande verksamhetsåret.
+        \item[att] tillsammans med Fysikteknologsektionens valberedning lägga fram förslag på efterträdare till respektive sektionskommitté.
+        \item[att] inför inval av poster och förtroendeposter i respektive sektionskommitté tillse att samtliga sektionens medlemmar har givits fullgod möjlighet att med lätthet införskaffa information och bekantskap med respektive sektionskommitté och dess arbetsuppgifter.
+        \item[att] kontinuerligt dokumentera sin verksamhet, som stöd till nästkommande års kommitté.
+        \item[att] delta i de av Djungelpatrullen anordnade städdagarna två gånger per läsår. Om detta uppfylls får de närvarande gå gratis på nästa sektionsaktivafest.
+        \item[att] under inga omständigheter vid med sektionen associerat arrangemang eller vid med sektionen associerad festlighet servera, försälja eller bjuda på øhl av märket Pripps, förutom vid häfv eller arrangemang i kårhuset.
+    \end{description}
+}
+
+\newcommand{\aliggsektfunkt}{ % Åligganden för sektionsfunktionärer
+    \subsection{Det åligger varje sektionsfunktionär:}
+    \begin{description}
+      \item[att] delta i de av Djungelpatrullen anordnade städdagarna två gånger per läsår då sektionslokalen och sektionens motorfordon städas. Sektionsfunktionärer som uppfyller detta får gå gratis på nästa sektionsaktivafest.
+    \end{description}
+}
+
+\newcommand{\aliggvalber}{ % Åligganden för kommittéer angående valberedning
+    \subsubsection{Förberedelse}
+    Inför valberedningen är kommittén skyldig att bilda sig en detaljerad uppfattning om varje aspirant till föreningen som skall valberedas. Därtill är kommittén skyldig att i samråd med valberedningen upprätta en kravprofil för kommittén i helhet samt för dess förtroendeposter.
+    
+    \subsubsection{Intervjuer}
+    Under valberedningens intervjuer skall \forening{} utse två representanter att deltaga under dessa samt under de efterföljande samtalen i syfte att nominera kandidater.\\
+    De representanter som utses får själva inte valberedas för eller söka någon post i denna förening.
+}

@@ -1,0 +1,38 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\begin{document}
+
+\renewcommand{\forening}{Bilnisse} % Används i headern bl.a.
+
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item Bilnisse har funktionärsstatus på sektionen.
+        \item Bilnisses syfte är att ta hand om sektionsbilen.
+    \end{itemize}
+    Bilnisse består av en ekonomisk bilnisse och en mekanisk bilnisse.
+    
+    \section{Åligganden}
+    \aliggsektfunkt{} % Infogar allmänna sektionsfunktionärsåligganden
+        
+    \subsection{Det åligger Bilnissarna:}
+    \begin{description}
+          \item[att] ansvara för de motorfordon som sektionsstyrelsen har bestlutat om, dock ensast sådana som sektionen helt eller delvis förfogar över.
+          \item[att] ansvara för uthyrning av dessa fordon, enligt taxa fastställd av sektionsstyrelsen.
+    \end{description}
+    
+    \section{Postspecifika åligganden:}
+    \subsection{Ekonomisk bilnisse}
+    Det åligger ekonomisk bilnisse:
+    \begin{description}
+          \item[att] vara sektionskassören behjälplig vid ekonomiska ärenden rörande bilnisse. 
+    \end{description}
+    
+    \subsection{Mekanisk bilnisse}
+    Det åligger mekanisk bilnisse:
+    \begin{description}
+          \item[att] tillse att ovannämnda fordon underhålls och repareras på ett tillfredsställande sätt.
+    \end{description}
+\end{foreningenv}
+
+\end{document}

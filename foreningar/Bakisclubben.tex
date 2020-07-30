@@ -1,0 +1,24 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\usepackage{refcount}
+\begin{document}
+
+\renewcommand{\forening}{Bakisclubben} % Används för headern bl.a.
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item Det ska väljas 0-6 bakisar.
+        \item Bakisclubben har funktionärsstatus på sektionen.
+    \end{itemize}
+    
+    
+    \section{Åligganden}
+    \aliggsektfunkt{} % Infogar allmänna sektionsfunktionärsåligganden
+        
+    \subsection{Det åligger \forening{}:}
+    \begin{description}
+          \item[att] baka bullar till de ordinarie sektionsmötena i läsperiod 2 och 4. 
+    \end{description}
+\end{foreningenv}
+
+\end{document}

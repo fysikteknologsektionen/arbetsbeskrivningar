@@ -1,0 +1,40 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\begin{document}
+% &:et i namnet pajar vissa saker (typ labels), så här görs saker manuellt
+
+\renewcommand{\forening}{Piff \& Puff} % Används för headern bl.a.
+
+
+\label{start:PiffochPuff}
+\setcounter{section}{0} % Startar om sectionräknaren så att filens sections börjar på 1
+\part{\forening} % \part används här som rubriker för varje förening
+\FPeval{\partend}{clip(\getpagerefnumber{end:PiffochPuff} - \getpagerefnumber{start:PiffochPuff} + 1)}
+\ifstandalone \else
+    \fancyfoot[C]{\FPeval{\partpage}{clip(\thepage - \getpagerefnumber{start:PiffochPuff} + 1)} \thepage ~(\partpage/\partend)} % Fixar sidnumreringen för Piff & Puff
+\fi
+
+\section{Allmänt}
+\begin{itemize}
+    \item Piff \& Puff har funktionärsstatus på sektionen. 
+    \item Piff \& Puffs syfte är att hjälpa sektionen engagera och underhålla sektionsmedlemmar, samt hjälpa sektionsmedlemmar med vägledning och tips på hur aktiviteter för sektionsmedlemmar kan genomföras.
+\end{itemize}
+Piff \& Puff består av 0-4 piffar. 
+
+\section{Åligganden}
+\aliggsektfunkt{}
+\subsection{Det åligger Piff \& Puff:}
+\begin{description}
+    \item[att] varje läsperiod undersöka efterfrågan av sektionsarrangemang och arbeta för att matcha utbudet därefter, med målet att underhålla så stor del av sektionens medlemmar som möjligt.
+\end{description}
+
+\label{end:PiffochPuff}
+\ifstandalone
+    \section{Tolkning och ändring}
+    \tolkning{}
+\else
+    \newpage    
+    \fancyfoot[C]{\FPeval{\partpage}{clip(\thepage - \getpagerefnumber{start:\forening} + 1)} \thepage ~(\partpage/\partend)} % Återställer den interna sidnumrering till den automatiska varianten
+\fi
+
+\end{document}

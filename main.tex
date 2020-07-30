@@ -1,157 +1,82 @@
 \documentclass[a4paper]{article}
-\usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
-\usepackage[swedish]{babel}
-\pagenumbering{arabic}
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{fullpage}
-\usepackage{array}
-\usepackage{ifpdf}
-\usepackage{longtable}
-\usepackage[left=20mm,right=20mm,top=10mm,bottom=20mm]{geometry}
-\usepackage[yyyymmdd]{datetime} %Ger mer valfrihet kring datumformat
-\usepackage{url}
-\usepackage{soul}
-\usepackage{ulem}
-\usepackage[disable]{todonotes}
-%\usepackage[normaalem]{ulem}
-
-%Veckodagar på svenska
-\providecommand*{\dayofweeknameidswedish}[1]{%
-\ifcase#1\relax
-\or söndagen%
-\or måndagen%
-\or tisdagen%
-\or onsdagen%
-\or torsdagen%
-\or fredagen%
-\or lördagen%
-\fi}
-
-%%%% Fina headers är bra skit. %%%%
-\pagestyle{fancy}
-\headheight 35pt
-\headwidth \textwidth
-\addtolength{\textwidth}{-65pt}
-\headsep 40pt
-\addtolength{\textheight}{-65pt}
-\renewcommand{\footrulewidth}{0.4pt}
-%%%% Välj logga (styretlogo, sektionslogo eller din funktionärslogo) och ändra
-\fancyhead[L]{\includegraphics[height=5\baselineskip]{sektionslogo.png}}
-\fancyhead[R]{Arbetsordning \forening \\
-\today \\
-}
-%\fancyfoot[L]{Revisor \\ Anna Rosenberg \\ annros@student.chalmers.se}
-%\fancyfoot[C]{\url{http://www.ftek.chalmers.se/revisor} \\ revisor@ftek.chalmers.se}
-%\fancyfoot[R]{Revisorssuppleant \\ Marcus Birgersson \\ marbirg@student.chalmers.se}
-
-
-%%%%%%%EGNA KOMMANDON %%%%%%%%%%%%%%
-\newcommand{\signbox}[3]{
-
-\vspace{2cm}
-#1  \\
-\vspace{5mm}\\
-\line(1,0){150}\\
- #2 \\ #3\newpage}
-
-\newdateformat{mydate}{\dayofweekname{\THEDAY}{\THEMONTH}{\THEYEAR} den \THEDAY :a \monthname[\THEMONTH] \THEYEAR}%END
-
-
-
-
-%%%% Här börjar det riktiga dokumentet %%%%
-
+\usepackage{preamble} % Laddar preamblen från preamble.sty
 \begin{document}
+\standalonefalse % Används för att skippa Tolkning och ändring i varje enskild arbetsordning
 
-\renewcommand{\dateseparator}{-} %Omdefinierar hur datum visas
-%\input{motesordningSM.tex}
-\listoftodos
+%%%% Framsida %%%%
 
-\todo{Use todo  to make comments}
+\thispagestyle{first} % Skippar headern på första sidan
+
+\begin{figure}
+    \centering \includegraphics[width=.45\textwidth]{sektionslogoring.png} \\ % Loggan
+    \Huge \bfseries Arbetsbeskrivningar
+\end{figure}
+
+\tolkning{}
+
+\vfill \hrule \vspace{.5em} % Fyller ut utrymmet så att registret hamnar längst ner
+\begin{multicols}{2} % Delar upp registret i två kolumner
+  \tableofcontents
+\end{multicols}
+
 \newpage
 
+\fancyfoot[C]{\FPeval{\partpage}{clip(\thepage - \getpagerefnumber{start:\forening} + 1)} \thepage ~(\partpage/\partend)} % Lägger till intern sidnumrering för varje förening. Notera att ändringar här inte reflekteras hos Piff & Puff; pga problem med &:et ändras definitionen här för dem
 
-\input{Bakisclubben.tex}
-\setcounter{section}{0}
+%%%% Föreningsdokumenten %%%%
 
-\input{Balngt.tex}
-\setcounter{section}{0}
+\input{foreningar/Bakisclubben.tex}
 
-\input{Bilnisse.tex}
-\setcounter{section}{0}
+\input{foreningar/Balngt.tex}
 
-\input{Blodgruppen.tex}
-\setcounter{section}{0}
+\input{foreningar/Bilnisse.tex}
 
-\input{Djungelpatrullen.tex}
-\setcounter{section}{0}
+\input{foreningar/Blodgruppen.tex}
 
-\input{Dragos.tex}
-\setcounter{section}{0}
+\input{foreningar/Djungelpatrullen.tex}
 
-\input{Dumvast.tex}
-\setcounter{section}{0}
+\input{foreningar/Dragos.tex}
+
+\input{foreningar/Dumvast.tex}
+
+%\input{Dumvastinnehavare.tex}
+
+\input{foreningar/F6.tex}
+
+\input{foreningar/Fanfareriet.tex}
+
+\input{foreningar/FARM.tex}
+
+\input{foreningar/FIF.tex}
+
+\input{foreningar/Finform.tex}
+
+\input{foreningar/FnollK.tex}
+
+\input{foreningar/Focumateriet.tex}
+
+%\input{foreningar/Foton.tex}
+
+\input{foreningar/Gameboy.tex}
+
+\input{foreningar/Kraldjursvardare.tex}
+
+\input{foreningar/Karnstyret.tex}
  
-\input{Dumvastinnehavare.tex}
-\setcounter{section}{0}
+\input{foreningar/Lekmannarevisor.tex}
 
-\input{F6.tex}
-\setcounter{section}{0}
+\input{foreningar/Piff&puff.tex}
 
-\input{Fanfareriet.tex}
-\setcounter{section}{0}
+\input{foreningar/Sektionsnord.tex}
 
-\input{FARM.tex}
-\setcounter{section}{0}
+\input{foreningar/SNF.tex}
 
-\input{FIF.tex}
-\setcounter{section}{0}
+\input{foreningar/Spidera.tex}
 
-\input{Finform.tex}
-\setcounter{section}{0}
+\input{foreningar/Sangforman.tex}
 
-\input{FnollK.tex}
-\setcounter{section}{0}
+\input{foreningar/Valberedningen.tex}
 
-\input{Focumateriet.tex}
-\setcounter{section}{0}
-
-\input{Gameboy.tex}
-\setcounter{section}{0}
-
-\input{Kraldjursvardare.tex}
-\setcounter{section}{0}
-
-\input{Karnstyret.tex}
-\setcounter{section}{0}
- 
-\input{Lekmannarevisor.tex}
-\setcounter{section}{0}
-
-\input{Piff&puff.tex}
-\setcounter{section}{0}
-
-\input{Sektionsnord.tex}
-\setcounter{section}{0}
-
-\input{SNF.tex}
-\setcounter{section}{0}
-
-\input{Spidera.tex}
-\setcounter{section}{0}
-
-\input{Sangforman.tex}
-\setcounter{section}{0}
-
-\input{Valberedningen.tex}
-\setcounter{section}{0}
-
-
-%\signbox{d}{Marcus Birgersson}{Revisorssuppleant}
-
-% \end{description}
 
 \end{document}
 

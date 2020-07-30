@@ -1,0 +1,30 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\begin{document}
+
+\renewcommand{\forening}{Sektionsnörd} % Används för headern bl.a.
+
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item Det ska väljas en sektionsnörd.
+        \item Sektionsnörden har funktionärsstatus på sektionen.
+        \item Sektionsnördens syfte är att ta hand om allting som rör sektionens prenumeration av Fantomen.
+    \end{itemize}
+    
+    \section{Åligganden}
+    \aliggsektfunkt{}
+    
+    \subsection{Det åligger Sektionsnörden:}
+    \begin{description}
+        \item[att] ansvara för att det hålls en Dragosföreläsning under mottagningen.
+        \item[att] administrera den efterföljande Dragostentan.
+        \item[att] rätta Dragostentan och säkerställa att föreläsare i första analyskursen får ta del av resultaten.
+        \item[att] sortera in nya nummer av Fantomen i Fantomensamlingen.
+        \item[att] katalogisera Fantomensamlingen.
+        \item[att] komplettera Fantomensamlingen.
+        \item[att] en gång per år arrangera filmvisning av tillgängliga fantomenfilmer.
+    \end{description}
+\end{foreningenv}
+
+\end{document}

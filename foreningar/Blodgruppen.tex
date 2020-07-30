@@ -1,0 +1,33 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\begin{document}
+
+\renewcommand{\forening}{Blodgruppen} % Används i headern bl.a.
+
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item Blodgruppen har funktionärsstatus på sektionen.
+        \item Blodgruppen ansvarar för att uppmuntra sektionsmedlemmarna att lämna blod.
+    \end{itemize}
+    Blodgruppen består av en ansvarig och 1-4 ledamöter.
+    
+    
+    \section{Åligganden}
+    \aliggsektfunkt{} % Infogar allmänna sektionsfunktionärsåligganden
+        
+    \subsection{Det åligger \forening{}:}
+    \begin{description}
+          \item[att] underlätta för sektionsmedlemmarna att lämna blod.
+          \item[att] en gång per läsperiod anordna blodlunch.
+    \end{description}
+    
+    \section{Postspecifika åligganden}
+    \subsection{Ansvarig}
+    Det åligger Blodgruppens ansvarige:
+    \begin{description}
+          \item[att] tillse att Blodgruppens åligganden uppfylls.
+    \end{description}
+\end{foreningenv}
+
+\end{document}

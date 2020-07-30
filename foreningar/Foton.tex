@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\begin{document}
+
+\renewcommand{\forening}{Foton} % Används för headern bl.a.
+
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item Foton har funktionärsstatus på sektionen.
+        \item Fotons syfte är att föreviga sektionens verksamhet.
+    \end{itemize}
+    Foton består av 0--6 fotografer.
+    
+    \section{Åligganden}
+    \aliggsektfunkt{}
+    
+    \subsection{Det åligger Foton:}
+    \begin{description}
+        \item[att] fotografera nollan samt uppdatera och underhålla tavlorna på Focus.
+        \item[att] fotografera arrangemang på sektionen. Om detta görs på inbjudan av kommitté eller annat sektionsorgan ska fotograferna erbjudas gratis mat.
+    \end{description}
+\end{foreningenv}
+
+\end{document}
