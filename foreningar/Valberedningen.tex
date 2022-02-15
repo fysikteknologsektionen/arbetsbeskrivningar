@@ -2,6 +2,7 @@
 \usepackage{preamble}
 \begin{document}
 
+%%nyttnytt: bytt itemize->description
 \renewcommand{\forening}{Valberedningen} % Används för headern bl.a.
 
 \begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
@@ -19,8 +20,8 @@
     \aliggsektfunkt{}
     
     \section{Specifika åligganden}
-    \subsection{Det åligger valberedningen:}
-    \begin{itemize}
+    Det åligger \forening{}:
+    \begin{description} 
         \item[att] vid sitt första sammanträde internt välja ordförande och vice ordförande.
         \item[att] valbereda samtliga poster i sektionsstyrelsen.
         % \item[att] valbereda revisorer. Togs bort 3 okt
@@ -31,7 +32,7 @@
         \item[att] tillsammans med berörd styrelse, kommitté, studienämnd eller funktionär tillse att aspningen lyfter fram  egenskaper enligt kravprofilen.
         \item[att] i frånvaro av lämpliga kandidater, i mån av tid, söka reda på sådana.
         \item[att] kontinuerligt dokumentera arbetsgångar och liknande för att behålla kontinuitet inför efterföljande år.
-    \end{itemize}
+    \end{description}
     
     \section{Valprocessen}
     \begin{itemize}
@@ -44,17 +45,17 @@
     \section{Postspecifika uppdrag}
     \subsection{Ordförande}
     Det åligger valberedningens ordförande:
-    \begin{itemize}
+    \begin{description}
         \item[att] vara sammankallande för valberedningen.
         \item[att] vid lika röstresultat fälla avgörande röst.
-    \end{itemize}
+    \end{description}
     
     \subsection{Vice ordförande}
     Det åligger valberedningens vice ordförande:
-    \begin{itemize}
+    \begin{description}
         \item[att] i ordförandes frånvara anta dennes åligganden.
         \item[att] vara ordföranden behjälplig.
-    \end{itemize}
+    \end{description}
 \end{foreningenv}
 
 \end{document}

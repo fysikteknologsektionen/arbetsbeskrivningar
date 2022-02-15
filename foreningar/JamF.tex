@@ -1,0 +1,20 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\usepackage{refcount}
+\begin{document}
+
+%nyttnytt
+\renewcommand{\forening}{JämF} % Används för headern bl.a. %allt är nyttnytt
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item JämF har funktionärsstatus på sektionen.
+    \end{itemize}
+    JämF består av sektionsstyrelsens skyddsombud, en representant vardera från de kommittéer och sektionsföreningar där intresse för medlemskap finns samt 2–3 fristående ledamöter.
+    
+    \section{Generella åligganden}
+    \aliggsektfunkt{} % Infogar allmänna sektionsföreningsåligganden
+
+\end{foreningenv}
+
+\end{document}

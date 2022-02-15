@@ -1,0 +1,26 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\begin{document}
+
+%nyttnytt
+\renewcommand{\forening}{Frisörer} % Används för headern bl.a.
+
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+
+    \section{Allmänt}
+    \begin{itemize}
+        \item Frisörer har funktionärsstatus på sektionen.
+    \end{itemize}
+    Frisörer är till antalet 0-2.
+    
+    \section{Generella åligganden}
+    \aliggsektfunkt{}
+    
+    \section{Specifika åligganden}
+    Det åligger \forening{}na:
+    \begin{description}
+        \item[att] kunna klippa
+    \end{description}
+\end{foreningenv}
+
+\end{document}

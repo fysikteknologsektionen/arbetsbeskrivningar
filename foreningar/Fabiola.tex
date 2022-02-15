@@ -1,0 +1,19 @@
+\documentclass[a4paper]{article}
+\usepackage{preamble}
+\usepackage{refcount}
+\begin{document}
+
+\renewcommand{\forening}{Fabiola} % Används för headern bl.a. %allt är nyttnytt
+\begin{foreningenv}{\forening{}} % Hanterar mycket av logiken kring enskild/gemensam kompilering. Argumentet blir rubriken
+    \section{Allmänt}
+    \begin{itemize}
+        \item Fabiola har sektionsföreningsstatus på sektionen.
+    \end{itemize}
+    Fabiola består av 1-10 ledamöter.
+    
+    \section{Generella åligganden}
+    \aliggsektfor{} % Infogar allmänna sektionsföreningsåligganden
+
+\end{foreningenv}
+
+\end{document}
